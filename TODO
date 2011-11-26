@@ -1,0 +1,33 @@
+;;; Local Variables: ***
+;;; mode:org ***
+;;; End: ***
+
+* MentProtector
+
+* Core. Background Client
+** TODO Config Intents
+** TODO Background recorder
+** TODO Tray Notifications
+** TODO ArtWorks(icons)
+
+* Runtime Encoder
+** TODO Understand JNI
+** TODO Port and test ffmpeg to android
+*** Possible start point
+    - bambuser ffmpeg source
+    - affmpeg
+    - rockplayer
+** TODO Create fifo transcode engine
+** TODO Performance testing for different transcode parameters
+
+* Broadcast Engine (RSTP/justin)
+  Justin.tv is the only (i know) livevideo service with open API.
+** TODO Integrate RSTP encoder (try live555)
+** TODO Test boundle MentProtector=>RSTP===>jtvlc
+** TODO Port jtvlc to java (jtrstp_lib)
+*** TODO Implement Oauth to jtsrsp_lib
+** TODO Integrate jtlrstp_lib to MentProtector
+** TODO QoS for video frames
+   If channel is too slow then video frames will spoof that channel so sound
+   will be choppy, this is very annoying. Let's use bambuser's
+

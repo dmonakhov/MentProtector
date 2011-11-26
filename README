@@ -1,0 +1,26 @@
+;;; Local Variables: ***
+;;; mode:org ***
+;;; End: ***
+
+
+* FEATURES
+  Purpose of this project to create a broadcast client with following features:
+  0) Record video and audio from you mobile android device
+  1) Write stream to local sdcard in hi quality
+  2) Transcode in runtime in to low-quality and stream it to livevideo service
+  3) Automatically reconnect to service after network failure w/o interrupting
+     recording(1).
+
+* Why yet another project, or detailed Bamuser criticism
+  I'm just an user who want a service to work accordings to my demands, As you
+  can see (1) and (3) features are unique, and very important for journalist's
+  activity. I've loosed too many good moments because that network crap while
+  using bambuser. I've emailed my proposal to bambueser team, but whey was
+  rejected, because bambuser guys are seems to lazy. Bambuser offer only RTMP
+  streaming for third-party clients which is close-sorced, and there are no
+  light weight implementations available. Actually i'm not happy of idea to
+  spend my time for investigating all this codec/transcoding/android stuff, but
+  i have to, bambuser guys are too lazy, and political activists was beaten too
+  many times by russian police. So this is good motivation to getting this
+  project done. So shame on you bambuser. I can do my own open source project
+  without your help.
