@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, MentProtectorActivity!</string>
+    
+    <string name="hello">Well come to MentProtector!</string>
     <string name="app_name">MentProtector</string>
+    <string name="menu_setup">&quot;Preferences&quot;</string>
+    <string name="menu_quit">&quot;Stop services, and quit&quot;</string>
+    <string name="SetupActivity_title">Preferences</string>
+    <string name="setup_camera_id_text">Camera</string>
+    <string name="setup_camera_id_spinner_prompt">Choose a camera</string>
+    <string name="setup_camera_size_text">Camera resolution</string>
+    <string name="setup_camera_size_spinner_promt">Choose video resolution</string>
+    <string name="setup_camera_quality_text">Video quality</string>
+    <string name="setup_camera_quality_spinner_promt">Choose video quality</string>
+    <string name="setup_audio_quality_text">Audio quality</string>
+    <string name="setup_audio_quality_spinner_promt">Choose audio quality</string>
+    <string name="setup_stream_support_text">&quot;Streaming support&quot;</string>
+    <string-array name="setup_quality_type">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
+    <string-array name="setup_camera_info">
+        <item>&quot;Facing Back&quot;</item>
+        <item>&quot;Facing Front&quot;</item>
+        <item>Disabled</item>
+    </string-array>
+    
+    <string-array name="no_yes">
+        <item>No</item>
+        <item>Yes</item>
+    </string-array>
+    
+    <string-array name="off_on">
+        <item>Off</item>
+        <item>On</item>
+    </string-array>
+    
 </resources>

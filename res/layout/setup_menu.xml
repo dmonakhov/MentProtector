@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+	android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+	android:padding="6dip">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/setup_camera_id_text"
+    />
+    <Spinner android:id="@+id/setup_camera_id_spinner"
+        android:layout_width="match_parent"
+        android:drawSelectorOnTop="true"
+        android:prompt="@string/setup_camera_id_spinner_prompt"
+    android:layout_height="50dip"
+    />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:text="@string/setup_camera_size_text"
+    />
+    <Spinner android:id="@+id/setup_camera_size_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:drawSelectorOnTop="true"
+        android:prompt="@string/setup_camera_size_spinner_promt"
+        
+    />
+
+	<TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:text="@string/setup_camera_quality_text"
+    />
+   <Spinner android:id="@+id/setup_camera_quality_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:drawSelectorOnTop="true"
+        android:prompt="@string/setup_camera_quality_spinner_promt"
+	/>
+	
+	<TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:text="@string/setup_audio_quality_text"
+    />
+   <Spinner android:id="@+id/setup_audio_quality_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:drawSelectorOnTop="true"
+        android:prompt="@string/setup_audio_quality_spinner_promt"
+	/>
+	<CheckBox
+		android:text="Enable streaming support"
+   		android:id="@+id/setup_stream_support_box"
+   		android:layout_width="wrap_content"
+   		android:layout_height="wrap_content"
+   	/>
+
+   </LinearLayout>
+</ScrollView>

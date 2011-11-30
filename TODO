@@ -2,13 +2,17 @@
 ;;; mode:org ***
 ;;; End: ***
 
-* MentProtector
 
 * Core. Background Client
-** TODO Config Intents
-** TODO Background recorder
+** DONE Config Intents
+** WAITING Background recorder					    :WAITING:
+   - State "WAITING"    from "DONE"       [2011-11-30 Wed 19:46] \\
+     Proof of concept implementation is here, will rewrite interface soon
+
 ** TODO Tray Notifications
-** TODO ArtWorks(icons)
+** [1/2] ArtWorks(icons)
+   - [X] Main icon
+   - [ ] Tray icon	 
 
 * Runtime Encoder
 ** TODO Understand JNI
@@ -29,5 +33,5 @@
 ** TODO Integrate jtlrstp_lib to MentProtector
 ** TODO QoS for video frames
    If channel is too slow then video frames will spoof that channel so sound
-   will be choppy, this is very annoying. Let's use bambuser's
-
+   will be choppy, this is very annoying. Let's use bambuser's approach drop
+   video frames in advance to audio stream.
