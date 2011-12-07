@@ -10,6 +10,7 @@
   2) Transcode in runtime in to low-quality and stream it to livevideo service
   3) Automatically reconnect to service after network failure w/o interrupting
      recording(1).
+SEE: TODO file.
 
 * Why yet another project, or detailed Bamuser criticism
   I'm just an user who want a service to work accordings to my demands, As you

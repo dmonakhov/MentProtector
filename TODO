@@ -2,36 +2,86 @@
 ;;; mode:org ***
 ;;; End: ***
 
+* Vision #2
+** Encoder engine
+   Use native libstagefright framework for encoding in order to
+   save cpu resources.
+*** Investigate skype mobile example
+    Skype has amazing guide mobile-kit(framework-android) for android where
+    all things are already implemented. And works:
+    Code size is really good: Native cpp code: <4Kl, Java code: <3Kl
+*** Write integration layer from scratch while keeping skype-kit in mind
+    In order to avoid patenting limitation
+    ETA: 1week
+*** Implement new features for integration layer
+**** Virtual media source: (one to many)
+     Create virtual media source(proxy data source) which may transfer frames
+     to different clients: For example
+     real-camera:<--vsource--->virtcamera(use_native_picture_size)->OMXCodec
+                            \-> virtcamera(resize_picture)->OMXCodec 
+     It is reasonable to avoid memcpy while duplicating frames.
+     Same logic applied to sound filters, except the fact that we need only
+     noop(pass as is) filter.
+**** Picture noop filter(extent Camera): pass as is
+**** Picture resize filter(extend Camera):
+     Implement frame resizer: in simplest case only ineger scale is supported
+*** Implement logic for two parallel encoders
+    1)setup camera in hi quality
+    2) proxy camera source redistribute frames for two filters
+       - First is noop(pass as is) fiter
+       - Second reduce picture to broadcast size(320x240)
+    2b) proxy sound source redistribure frames for noop filters
+    3) Start two encoders which use this corresponding filers
+       as camera(video) and audio source.
+** Broadcast Engine (RSTP/justin)
+   Justin.tv is the only (i know) livevideo service with open API.
+*** TODO Integrate RSTP encoder (try live555)
+*** TODO Test boundle MentProtector=>RSTP===>jtvlc
+*** TODO Port jtvlc to java (jtrstp_lib)
+*** TODO Implement Oauth to jtsrsp_lib
+*** TODO Integrate jtlrstp_lib to MentProtector
+*** TODO QoS for video frames
+    If channel is too slow then video frames will spoof that channel so sound
+    will be choppy, this is very annoying. Let's use bambuser's approach drop
+    video frames in advance to audio stream.
 
-* Core. Background Client
-** DONE Config Intents
-** WAITING Background recorder					    :WAITING:
-   - State "WAITING"    from "DONE"       [2011-11-30 Wed 19:46] \\
-     Proof of concept implementation is here, will rewrite interface soon
 
-** TODO Tray Notifications
-** [1/2] ArtWorks(icons)
-   - [X] Main icon
-   - [ ] Tray icon	 
+
+* Vision #1
+** Core. Background Client
+*** DONE Config Intents
+*** WAITING Background recorder					    :WAITING:
+    - State "WAITING"    from "DONE"       [2011-11-30 Wed 19:46] \\
+      Proof of concept implementation is here, will rewrite interface soon
+
+*** TODO Tray Notifications
+*** [1/2] ArtWorks(icons)
+    - [X] Main icon
+    - [ ] Tray icon	 
 
 * Runtime Encoder
-** TODO Understand JNI
-** TODO Port and test ffmpeg to android
+*** TODO Understand JNI
+*** CANCELLED Port and test ffmpeg to android			  :CANCELLED:
+    CLOSED: [2011-12-07 Wed 10:35]
+    - State "CANCELLED"  from "TODO"       [2011-12-07 Wed 10:36] \\
+      It is appeared that ffmpeg is not optimized for arm,
+      so let's native stagefright framework
 *** Possible start point
     - bambuser ffmpeg source
     - affmpeg
     - rockplayer
-** TODO Create fifo transcode engine
-** TODO Performance testing for different transcode parameters
+*** TODO Create fifo transcode engine
+*** TODO Performance testing for different transcode parameters
 
-* Broadcast Engine (RSTP/justin)
-  Justin.tv is the only (i know) livevideo service with open API.
-** TODO Integrate RSTP encoder (try live555)
-** TODO Test boundle MentProtector=>RSTP===>jtvlc
-** TODO Port jtvlc to java (jtrstp_lib)
+** Broadcast Engine (RSTP/justin)
+   Justin.tv is the only (i know) livevideo service with open API.
+*** TODO Integrate RSTP encoder (try live555)
+*** TODO Test boundle MentProtector=>RSTP===>jtvlc
+*** TODO Port jtvlc to java (jtrstp_lib)
 *** TODO Implement Oauth to jtsrsp_lib
-** TODO Integrate jtlrstp_lib to MentProtector
-** TODO QoS for video frames
-   If channel is too slow then video frames will spoof that channel so sound
-   will be choppy, this is very annoying. Let's use bambuser's approach drop
-   video frames in advance to audio stream.
+*** TODO Integrate jtlrstp_lib to MentProtector
+*** TODO QoS for video frames
+    If channel is too slow then video frames will spoof that channel so sound
+    will be choppy, this is very annoying. Let's use bambuser's approach drop
+    video frames in advance to audio stream.
+
